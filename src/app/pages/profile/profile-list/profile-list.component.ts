@@ -10,10 +10,15 @@ import { map } from 'rxjs';
 export class ProfileListComponent {
   constructor(private profileService: ProfileService) {}
 
+  profiles:any;
+
   ngOnInit() {
     this.profileService.buscarTodos().subscribe(result => {
-      console.log(result);
+      this.profiles=result;
+    },error => {
+      console.error(error);
     });
+    ;
   }
 
 }
